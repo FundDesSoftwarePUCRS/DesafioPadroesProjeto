@@ -3,14 +3,22 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
-public class LogSimples implements ILog, Iterable<String>{
+public class LogSimplesSingleton implements ILog, Iterable<String> {
+    private static LogSimplesSingleton instance;
     private List<String> mensagens;
 
-    public LogSimples(){
+    private LogSimplesSingleton() {
         mensagens = new LinkedList<>();
     }
 
-    public void log(String m){
+    public static LogSimplesSingleton getInstance() {
+        if (instance == null) {
+            instance = new LogSimplesSingleton();
+        }
+        return instance;
+    }
+
+    public void log(String m) {
         String logM = LocalDate.now().toString() + " : " + m;
         mensagens.add(logM);
     }
