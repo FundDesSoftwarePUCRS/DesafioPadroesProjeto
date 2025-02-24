@@ -18,4 +18,4 @@ o arquivo README de cada questão para maiores detalhes.
 
 ## Q4: Sistema de notificação usando observer
 
-    - Estrutura de dados que notifica contabilizadores de estatísticas diversas
+- Estrutura de dados que notifica contabilizadores de estatísticas diversas
