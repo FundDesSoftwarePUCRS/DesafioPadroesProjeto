@@ -10,7 +10,7 @@ o arquivo README de cada questão para maiores detalhes.
 
 ## Q2 Sistema de log simples usando Singleton
 
-- Aplicar o padrão Singleton para oermitir acessar o mecanismo de log de qualquer ponto do programa
+- Aplicar o padrão Singleton para permitir acessar o mecanismo de log de qualquer ponto do programa
 
 ## Q3 Sistema de log com níveis usando Decorator
 
