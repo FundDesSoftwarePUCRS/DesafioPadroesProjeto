@@ -12,4 +12,4 @@ Aplicar o padrão observer de maneira a tornar mais simples o acrescimo de novos
 ## Q5: Sistema de registro de vendas usando Composite
 Aplicar o padrão Composite de maneira que seja possível criar ofertas que correspondem a kits de produtos.
 ## Q6: Dado capaz de armazenar a relação dos valores sorteados nas últimas jogadas
-Aplicar o padrão decorator sobre um dados simples.
+Aplicar o padrão decorator sobre um dado simples.
