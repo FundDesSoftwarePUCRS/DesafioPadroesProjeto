@@ -1,73 +1,66 @@
 import java.util.HashMap;
 import java.util.Map;
 
-public class Codificador{
-    public enum Tipo {SIMPLES,DESLOCA};
-    private Map<Character,Character> tabCod;
-    private Map<Character,Character> tabDeCod;
+public class Codificador implements ICodificador {
+    public enum Tipo { SIMPLES, DESLOCA }
+    private Map<Character, Character> tabCod;
+    private Map<Character, Character> tabDeCod;
 
-    public Codificador(){
+    public Codificador() {
         tabCod = new HashMap<>();
-        tabCod.put('a','@');
-        tabCod.put('e','#');
-        tabCod.put('i','!');
-        tabCod.put('o','$');
-        tabCod.put('u','%');
-        tabDeCod = new HashMap<>();
-        tabDeCod.put('@','a');
-        tabDeCod.put('#','e');
-        tabDeCod.put('!','i');
-        tabDeCod.put('$','o');
-        tabDeCod.put('%','u');
+        tabCod.put('a', '@');
+        tabCod.put('e', '#');
+        tabCod.put('i', '!');
+        tabCod.put('o', '$');
+        tabCod.put('u', '%');
         
+        tabDeCod = new HashMap<>();
+        tabDeCod.put('@', 'a');
+        tabDeCod.put('#', 'e');
+        tabDeCod.put('!', 'i');
+        tabDeCod.put('$', 'o');
+        tabDeCod.put('%', 'u');
     }
 
-    private String codificaSimples(String str){
+    private String codificaSimples(String str) {
         char[] aux = str.toCharArray();
-        char[] resp = new char[str.length()];
-        for(int i=0;i<aux.length;i++){
-            if (tabCod.containsKey(aux[i])){
-                resp[i] = tabCod.get(aux[i]);
-            }else{
-                resp[i] = aux[i];
-            }
+        char[] resp = new char[aux.length];
+        for (int i = 0; i < aux.length; i++) {
+            resp[i] = tabCod.getOrDefault(aux[i], aux[i]);
         }
-        return(new String(resp));
+        return new String(resp);
     }
 
-    private String deCodificaSimples(String str){
+    private String deCodificaSimples(String str) {
         char[] aux = str.toCharArray();
-        char[] resp = new char[str.length()];
-        for(int i=0;i<aux.length;i++){
-            if (tabDeCod.containsKey(aux[i])){
-                resp[i] = tabDeCod.get(aux[i]);
-            }else{
-                resp[i] = aux[i];
-            }
+        char[] resp = new char[aux.length];
+        for (int i = 0; i < aux.length; i++) {
+            resp[i] = tabDeCod.getOrDefault(aux[i], aux[i]);
         }
-        return(new String(resp));
+        return new String(resp);
     }
 
-    private String codificaDesloca(String str){
+    private String codificaDesloca(String str) {
         char[] aux = str.toCharArray();
-        char[] resp = new char[str.length()];
-        for(int i=0;i<aux.length;i++){
-            resp[i] = (char)(Character.valueOf(aux[i])+1);
+        char[] resp = new char[aux.length];
+        for (int i = 0; i < aux.length; i++) {
+            resp[i] = (char) (aux[i] + 1);
         }
-        return(new String(resp));
+        return new String(resp);
     }
 
-    private String deCodificaDesloca(String str){
+    private String deCodificaDesloca(String str) {
         char[] aux = str.toCharArray();
-        char[] resp = new char[str.length()];
-        for(int i=0;i<aux.length;i++){
-            resp[i] = (char)(Character.valueOf(aux[i])-1);
+        char[] resp = new char[aux.length];
+        for (int i = 0; i < aux.length; i++) {
+            resp[i] = (char) (aux[i] - 1);
         }
-        return(new String(resp));
+        return new String(resp);
     }
 
-    public String codifica(Tipo tipo,String str){
-        switch(tipo){
+    @Override
+    public String codifica(Tipo tipo, String str) {
+        switch (tipo) {
             case SIMPLES:
                 return codificaSimples(str);
             case DESLOCA:
@@ -77,8 +70,9 @@ public class Codificador{
         }
     }
 
-    public String deCodifica(Tipo tipo,String str){
-        switch(tipo){
+    @Override
+    public String deCodifica(Tipo tipo, String str) {
+        switch (tipo) {
             case SIMPLES:
                 return deCodificaSimples(str);
             case DESLOCA:
@@ -87,5 +81,5 @@ public class Codificador{
                 return str;
         }
     }
-
 }
+
