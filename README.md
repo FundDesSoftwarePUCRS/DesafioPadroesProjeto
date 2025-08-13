@@ -1,7 +1,7 @@
 # Desafio sobre Padrões de Projeto
 O objetivo é resolver a maior quantidade de problemas usando padrões de projeto. Em todas as questões apresentar o código usando o padrão e um exemplo de uso. Verifique o arquivo README de cada questão para maiores detalhes.
 
-## Q1: Classe validadora de campos string usando Strategy
+## Q1: Classe validadora de campos string usando Factory
 Aplicar o padrão strategy a fim de permitir acrescentar outros validadores
 ## Q2 Sistema de log simples usando Singleton
 Aplicar o padrão Singleton para permitir acessar o mecanismo de log de qualquer ponto do programa
